@@ -1,0 +1,11 @@
+https://nb.anaconda.cloud/jupyterhub/user/301d380f-a220-4a33-89f7-46fabfd664c2/lab/workspaces/auto-w/tree/Untitled7.ipynb?
+
+
+import pandas as pd
+   
+df = pd.read_csv('movies.csv')
+df = pd.read_csv('ratings.csv')
+filtered_df = df[df['rating'] == 5.0]
+movie_ratings = filtered_df.groupby ('movieId').size().reset_index(name='количество_оценок')
+most_rated_movie = movie_ratings.loc[movie_ratings['количество_оценок'].idxmax()]
+print(f"Фильм с наибольшим количеством оценок 5.0: {most_rated_movie['movieId']}")
